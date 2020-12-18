@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row h-100 justify-content-center">
+    <div class="col text-center">
+      <div class="img-container">
+        <img class="img-thumbnail rounded-circle" src="{{ profile.photo || 'https://via.placeholder.com/105' }}">
+      </div>
+      <div class="pb-3" *ngIf="isLogged">
+        <button class="btn btm-sm w-100 bg-dark text-white" routerLink="/my-profile">Edit Profile</button>
+      </div>
+      <div>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Name:</strong> {{ profile.name }}</li>
+          <li class="list-group-item"><strong>Job Title:</strong> {{ profile.job }} </li>
+          <li class="list-group-item"><strong>Email:</strong> {{ profile.email }} </li>
+          <li class="list-group-item"><strong>Mobile No.:</strong> {{ profile.number }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

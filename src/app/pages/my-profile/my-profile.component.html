@@ -1,0 +1,92 @@
+<div class="row h-100 justify-content-center">
+  <div class="col pt-4 pb-3">
+    <div class="header " class="d-flex align-items-center p-3 pb-0  text-white bg-dark shadow-sm">General
+      Information</div>
+    <div class="p-3 bg-white shadow-sm" >
+      <div class="container-body">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="contaier">
+              <div class="row">
+                <div class="col-6 form-group">
+                  <label>First Name*</label>
+                  <input type="text" formControlName="firstName" class="form-control"
+                    [ngClass]="{'errmsg' : (!profileForm.get('firstName').valid && profileForm.get('firstName').touched) }">
+                  <small *ngIf="!profileForm.get('firstName').valid && profileForm.get('firstName').touched"
+                    class="form-text text-danger">
+                    First Name is required!
+                  </small>
+                </div>
+                <div class="col-6 form-group">
+                  <label>Last Name*</label>
+                  <input type="text" formControlName="lastName" class="form-control">
+                  <small *ngIf="!profileForm.get('lastName').valid && profileForm.get('lastName').touched"
+                    class="form-text text-danger">
+                    Last Name is required!
+                  </small>
+                </div>
+                <div class="col-6 form-group">
+                  <label>Alias*</label>
+                  <input type="text" formControlName="alias" class="form-control">
+                  <small *ngIf="!profileForm.get('alias').valid && profileForm.get('alias').touched" class="form-text text-danger">
+                    Alias is required!
+                  </small>
+                </div>
+                <div class="col-6 form-group">
+                  <label>Job Title*</label>
+                  <input type="text" formControlName="jobTitle" class="form-control">
+                  <small *ngIf="!profileForm.get('jobTitle').valid && profileForm.get('jobTitle').touched"
+                    class="form-text text-danger">
+                    Job Title is required!
+                  </small>
+                </div>
+                <div class="col-6 form-group">
+                  <label>Email Address*</label>
+                  <input type="email" formControlName="email" class="form-control">
+
+                  <small *ngIf="profileForm.get('email').hasError('required') && profileForm.get('email').touched"
+                    class="form-text text-danger">
+                    Email Address is required!
+                  </small>
+                  <small *ngIf="profileForm.get('email').hasError('email') && profileForm.get('email').touched"
+                    class="form-text text-danger">
+                    Input valid email
+                  </small>
+
+                </div>
+                <div class="col-6 form-group">
+                  <label>Phone Number</label>
+                  <input type="text" formControlName="mobileNumber" class="form-control">
+                  <small *ngIf="!profileForm.get('mobileNumber').valid && profileForm.get('mobileNumber').touched"
+                    class="form-text text-danger">
+                    Mobile Number is required!
+                  </small>
+                </div>
+                <div class="col-12">
+                  <hr class="" />
+                </div>
+                <div class="col-12 form-group">
+                  <label>Password</label>
+                  <input type="password" formControlName="password" class="form-control">
+                  <small *ngIf="!profileForm.get('password').valid && profileForm.get('password').touched"
+                    class="form-text text-danger">
+                    Password is required!
+                  </small>
+                </div>
+                <div class="col-12 form-group">
+                  <label>Confirm Password</label>
+                  <input type="password" formControlName="confirmPassword" class="form-control">
+                  <small *ngIf="!profileForm.get('confirmPassword').valid && profileForm.get('confirmPassword').touched"
+                    class="form-text text-danger">
+                    Confirm Password is required!
+                  </small>
+                </div>
+              </div>
+              <button type="submit" class="btn bg-dark text-white">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

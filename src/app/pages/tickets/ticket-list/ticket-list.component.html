@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row h-100 justify-content-center">
+    <div class="col pt-4 pb-3">
+      <h1>Tickets</h1>
+      <hr>
+      <strong>Total: {{ total_tickets }} records</strong>
+      <hr>
+      <div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Assignee</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Status</th>
+              <th scope="col">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ticket of tickets" >
+              <td>[{{ ticket?.template.alias || ''}}] {{ ticket?.template.name }}
+                <br>#{{ ticket.serial }}
+              </td>
+              <td>{{ ticket.assignee || 'Unassigned' }}</td>
+              <td>{{ ticket.priority }}</td>
+              <td>{{ ticket.status }}</td>
+              <td>
+                <button type="button" class="btn btn-sm bg-dark text-white" [routerLink]="ticket.id + '/view'"
+                  (click)="onView()">View</button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

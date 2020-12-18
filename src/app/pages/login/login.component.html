@@ -1,0 +1,24 @@
+<div class="col p-5 pb-3 ">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-5">
+        <div class="card">
+            <div class="card-header bg-dark text-white">Login</div>
+            <div class="card-body">
+              <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="email" name="username" class="form-control" formControlName="username"  [ngClass]="{'errmsg' : (!loginForm.get('username').valid && loginForm.get('username').touched) }">
+                  <small *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched" class="form-text text-danger">Username is invalid</small>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" class="form-control" formControlName="password" [ngClass]="{'errmsg' : (!loginForm.get('password').valid && loginForm.get('password').touched) }">
+                  <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="form-text text-danger">Password is invalid</small>
+                </div>
+                <button type="submit" class="btn btn-primary bg-dark">Submit</button>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
